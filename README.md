@@ -1,16 +1,77 @@
-# React + Vite
+Aplikacja stworzona w React.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Główne Funkcje
+1. Ekran Główny
+Główne Saldo: Wyświetlanie aktualnych dostępnych środków w dużym, czytelnym formacie.
 
-Currently, two official plugins are available:
+Total Wealth Widget: Agregacja majątku – podział na Gotówkę (Cash) oraz Oszczędności (Savings/Cele).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Szybkie Akcje: Przyciski nawigacyjne: Wpłać, Przelew, Wymiana, Więcej.
 
-## React Compiler
+Interaktywne Cele: Możliwość wpłacania środków na cele (np. "Wakacje") poprzez kliknięcie w wiersz – kwota jest automatycznie pobierana z konta głównego.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. Karty
+Animacje 3D: Realistyczny efekt obracania karty po kliknięciu (CSS 3D Transform).
 
-## Expanding the ESLint configuration
+Karta Metal: Główna karta ze stałymi danymi.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Karta Wirtualna: Karta jednorazowa, która generuje losowe numery przy każdym wejściu na ekran (symulacja bezpieczeństwa).
+
+3. Hub Analityczny (Analytics)
+Wykresy: Wizualizacja przychodów i wydatków za pomocą biblioteki recharts.
+
+Realne Dane: Wykresy i podsumowania są połączone z WalletContext i reagują na Twoje transakcje.
+
+4. Operacje Finansowe
+Przelewy: Formularz przelewu krajowego (Odbiorca, Konto, Kwota), który aktualizuje saldo i historię.
+
+Doładowania (Top-Up): Symulacja wpłaty przez BLIK (kod 6-cyfrowy) lub Kartę Płatniczą.
+
+Kantor (Exchange): Symulator wymiany walut (PLN -> EUR) z przelicznikiem w czasie rzeczywistym.
+
+Technologie:
+Projekt został zbudowany przy użyciu nowoczesnego stacku technologicznego:
+
+React (Vite)
+
+React Router DOM: Obsługa nawigacji (SPA - Single Page Application) i dolnego paska menu.
+
+Context API (WalletContext): Zarządzanie stanem globalnym aplikacji (saldo, transakcje, cele).
+
+Lucide React
+
+Recharts
+
+CSS3: Flexbox, Grid, CSS Variables, 3D Transforms, Glassmorphism.
+
+Instalacja i Uruchomienie
+Aby uruchomić projekt lokalnie na swoim komputerze:
+
+Sklonuj repozytorium (lub pobierz pliki): Upewnij się, że masz zainstalowane Node.js.
+
+Zainstaluj zależności: Otwórz terminal w folderze projektu i wpisz:
+
+Bash
+
+npm install
+Wymagane instalacje dodatkowe (jeśli nie ma w package.json):
+
+Bash
+
+npm install react-router-dom lucide-react recharts
+Uruchom aplikację:
+
+Bash
+
+npm run dev
+Otwórz w przeglądarce: Kliknij w link wyświetlony w terminalu (zazwyczaj http://localhost:5173).
+
+📂 Struktura Plików
+src/App.jsx - Główny plik z logiką widoków (Home, Cards, Transfer itp.) oraz routingiem.
+
+src/WalletContext.jsx - "Mózg" aplikacji. 
+
+src/App.css - Wszystkie style.
+
+📱 Responsywność
+Aplikacja została zaprojektowana w podejściu Mobile-First, ale posiada max-width: 550px dla kontenera głównego, dzięki czemu świetnie prezentuje się również na ekranach komputerów, zachowując proporcje aplikacji mobilnej.
